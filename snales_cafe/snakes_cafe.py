@@ -58,7 +58,7 @@ def menu_input():
     user_choice = input("> ")
     for menu in range(1):
         if user_choice == "quit":
-            print("Exiting")
+            print("Exiting have a good day")
         if user_choice == menu:
             print(f" 1 order of {user_choice} have been added to your meal")
 
