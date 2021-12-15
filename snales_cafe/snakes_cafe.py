@@ -41,39 +41,82 @@ def menu_items():
   """)
 
 
-menu = [
-    "Wings",
-    "Cookies",
-    "Spring Rolls",
-    "Salmon",
-    "Steak",
-    "Meat Tornado",
-    "A Literal Garden",
-    "Ice Cream",
-    "Cake",
-    "Pie",
-    "Coffee",
-    "Tea", "Unicorn Tears",
+menu_order = [
+    {
+        "Name": "Wings",
+        "Count": 0
+    },
+    {
+        "Name": "Cookies",
+        "Count": 0
+    },
+    {
+        "Name": "Spring Rolls",
+        "Count": 0
+    },
+    {
+        "Name": "Salmon",
+        "Count": 0
+    }, {
+        "Name": "steak",
+        "Count": 0
+    },
+    {
+        "Name": "Meat Tornado",
+        "Count": 0
+    },
+    {
+        "Name": "A literal Garden",
+        "Count": 0
+    },
+    {
+        "Name": "Ice Cream",
+        "Count": 0
+    },
+    {
+        "Name": "Cake",
+        "Count": 0
+    },
+    {
+        "Name": "Pie",
+        "Count": 0
+    },
+    {
+        "Name": "Coffee",
+        "Count": 0
+    },
+    {
+        "Name": "Tea",
+        "Count": 0
+    },
+    {
+        "Name": "Unicorn Tears",
+        "Count": 0
+    }
+
 ]
 
 if __name__ == "__main__":
     menu_items()
+    user_choice = ""
 
-    def menu_input():
-        user_choice = input("> ")
-        items_ordered = []
-        count = 1
-        while user_choice:
-            if user_choice == "quit":
-                print("Exiting have a good day")
-                break
-            if user_choice != "quit":
-                items_ordered.append(user_choice)
-                if user_choice == items_ordered:
-                    count += 1
+    while user_choice != "quit":
+        user_choice = input(">").capitalize()
+
+        for item in menu_order:
+            if item["Name"] == user_choice:
+                item["Count"] += 1
+                if item["Count"] > 1:
+                    noun = "order"
+                    verb = "has"
+
+                else:
+                    noun = "orders"
+                    verb = "have"
+
                 print(
-                    f" {count} order of {user_choice} has been added to your meal")
-                user_choice
-                break
+                    f' {item["Count"]} {noun} of {item["Name"]} {verb} been added to your meal')
 
-    menu_input()
+        if user_choice == "Quit":
+            print("Exiting have a good day")
+            break
